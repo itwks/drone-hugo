@@ -5,34 +5,17 @@ on:
     branches:
     - master
 
-env:
-  IMAGE_NAME: ehlxr/drone-hugo
-  NODE_VERSION: 12.20.0
-
 jobs:
   push:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build image
-        run: docker build --build-arg NODE_VERSION=$NODE_VERSION . --file Dockerfile --tag image
-
-      - name: Log into registry
-        run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
-
-      - name: Push image
-        run: |
-          # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-
-          # Strip "v" prefix from tag name
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "master" ] && VERSION=latest
-
-          echo IMAGE_NAME=$IMAGE_NAME
-          echo VERSION=$VERSION
-
-          docker tag image $IMAGE_NAME:$VERSION
-          docker push $IMAGE_NAME:$VERSION
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@maste
+      env:
+        NODE_VERSION: 12.20.0
+      with:
+        name: ehlxr/drone-hugo
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_TOKEN }}
+        buildargs: NODE_VERSION
