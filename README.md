@@ -16,6 +16,7 @@ steps:
     image: ariejan/drone-hugo
     settings:
       hugo_version: 0.65.3
+      run: hugo --minify
 ```
 
 ## Contributors
