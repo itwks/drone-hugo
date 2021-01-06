@@ -10,23 +10,7 @@ env:
   NODE_VERSION: 12.20.0
 
 jobs:
-  # Run tests.
-  # See also https://docs.docker.com/docker-hub/builds/automated-testing/
-  # test:
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - uses: actions/checkout@v2
-
-  #     - name: Run tests
-  #       run: |
-  #         docker build . --file Dockerfile
-
-
-  # Push image to Docker Hub
   push:
-    # Ensure test job passes before pushing image.
-    # needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
