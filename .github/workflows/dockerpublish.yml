@@ -13,7 +13,7 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       env:
-        NODE_VERSION: 12.20.0
+        NODE_VERSION: 12.20
       with:
         name: ehlxr/drone-hugo
         username: ${{ secrets.DOCKER_USER }}
