@@ -10,6 +10,6 @@ wget -q -O- ${HUGO_URL} | tar xz -C /usr/local/bin
 
 RUN=${PLUGIN_RUN:-"hugo"}
 
-echo "Run ${RUN}"
+echo "Running ${RUN}"
 
 ${RUN}
