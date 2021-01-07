@@ -16,6 +16,6 @@ IFS="
 for item in ${RUN}
 do
     echo "Running $item"
-    $item
+    $($item)
 done
 IFS=$oldIFS
