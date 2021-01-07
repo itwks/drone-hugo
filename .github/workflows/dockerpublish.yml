@@ -16,6 +16,6 @@ jobs:
         NODE_VERSION: 12.20.1
       with:
         name: itwks/drone-hugo
-        username: ${{ secrets.DOCKER_USER }}
-        password: ${{ secrets.DOCKER_TOKEN }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
         buildargs: NODE_VERSION
