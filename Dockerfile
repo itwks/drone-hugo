@@ -15,4 +15,4 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* &&\
     chmod +x /bin/drone-hugo.sh
 
-ENTRYPOINT [ " /bin/drone-hugo.sh" ]
+ENTRYPOINT ["/bin/drone-hugo.sh"]
