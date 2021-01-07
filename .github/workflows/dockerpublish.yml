@@ -15,7 +15,7 @@ jobs:
       env:
         NODE_VERSION: 12.20.1
       with:
-        name: ehlxr/drone-hugo
+        name: itwks/drone-hugo
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_TOKEN }}
         buildargs: NODE_VERSION
