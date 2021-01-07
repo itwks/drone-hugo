@@ -10,12 +10,12 @@ wget -q -O- ${HUGO_URL} | tar xz -C /usr/local/bin
 
 RUN=${PLUGIN_RUN:-"hugo"}
 
-oldIFS=$IFS
-IFS="
-"
-for item in ${RUN}
-do
-    echo "Running $item"
-    $($item)
-done
-IFS=$oldIFS
+# oldIFS=$IFS
+# IFS="
+# "
+# for item in ${RUN}
+# do
+#     echo "Running $item"
+#     $($item)
+# done
+# IFS=$oldIFS
